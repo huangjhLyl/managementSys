@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ; xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>流程设计</title>
+    <link th:href="@{/static/js/layui-v2.4.5/layui/css/layui.css}" rel="stylesheet"/>
+</head>
+<body>
+    <textarea  style="width: 100%;border:none; resize:none "> {{xml}} </textarea>
+</body>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" data-url="/static/modeler.html?modelId="+id lay-event="detail">启动</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">挂起</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">转化为模型</a>
+</script>
+<script th:src="@{/static/js/layui-v2.4.5/layui/layui.js}"></script>
+<!--<script th:src="@{/js/layui-v2.2.5/layui/lay/modules/jquery.js}"></script>-->
+<script type="text/javascript" th:inline="none">
+
+
+</script>
+</html>

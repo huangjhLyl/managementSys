@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ; xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>流程设计</title>
+    <link th:href="@{/static/js/layui-v2.4.5/layui/css/layui.css}" rel="stylesheet"/>
+</head>
+<body>
+<a href="/activiti/act-model/formEmpity" target="_blank">新建模型</a>
+<table class="layui-table" id="actModel" lay-filter="test">
+
+
+</table>
+</body>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" data-url="/static/modeler.html?modelId="+id lay-event="detail">编辑</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">部署</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">预览xml</a>
+</script>
+<script th:src="@{/static/js/layui-v2.4.5/layui/layui.js}"></script>
+<!--<script th:src="@{/js/layui-v2.2.5/layui/lay/modules/jquery.js}"></script>-->
+<script type="text/javascript" th:inline="none">
+    //JavaScript代码区域
+    layui.use('table', function () {
+        var table = layui.table;
+        var cols = [[
+            {field: 'id', title: '流程ID', sort: true}
+            ,{field: 'name', title: '流程名称', sort: true}
+            , {field: 'key', title: '流程key'}
+            , {field: 'type', title: '流程类型', sort: true}
+            , {field: 'version', title: '版本号'}
+            , {field: 'status', title: '发布状态'}
+            ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
+        ]]
+        table.render({
+            elem: '#actModel'
+            , url: '/activiti/act-model/list/'
+            , cols: cols
+            , page: true
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                ,layEvent = obj.event; //获得 lay-event 对应的值
+            if(layEvent === 'detail'){
+                // window.location.href="/static/modeler.html?modelId="+data.id;
+                window.open("/static/modeler.html?modelId="+data.id, "_blank");
+            } else if(layEvent === 'del'){
+                // layer.confirm('真的删除行么', function(index){
+                //     obj.del(); //删除对应行（tr）的DOM结构
+                //     layer.close(index);
+                //     //向服务端发送删除指令
+                // });
+                window.open("/activiti/act-model/readXml?modelId="+data.id, "_blank");
+            } else if(layEvent === 'edit'){
+                layer.msg('部署操作');
+                window.location.href ="/models/deployment/"+data.id;
+            }
+        });
+    });
+
+
+</script>
+</html>

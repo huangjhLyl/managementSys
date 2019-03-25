@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ; xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>流程设计</title>
+    <link th:href="@{/static/js/layui-v2.4.5/layui/css/layui.css}" rel="stylesheet"/>
+</head>
+<body>
+<form class="layui-form" action="/models/create">
+    <div class="layui-form-item">
+        <label class="layui-form-label">流程名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="name" lay-verify="name" autocomplete="off" placeholder="流程名称" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">流程key</label>
+        <div class="layui-input-block">
+            <input type="text" name="key" lay-verify="key" autocomplete="off" placeholder="流程key" class="layui-input">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit="" lay-filter="">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+</form>
+</body>
+<script th:src="@{/static/js/layui-v2.4.5/layui/layui.js}"></script>
+<!--<script th:src="@{/js/layui-v2.2.5/layui/lay/modules/jquery.js}"></script>-->
+<script type="text/javascript" th:inline="none">
+    //JavaScript代码区域
+
+</script>
+</html>

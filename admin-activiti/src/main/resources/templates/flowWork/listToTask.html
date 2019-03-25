@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" ; xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>代办流程列表</title>
+    <link th:href="@{/static/js/layui-v2.4.5/layui/css/layui.css}" rel="stylesheet"/>
+</head>
+<body>
+<table class="layui-table" id="actTask" lay-filter="test">
+
+
+</table>
+</body>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">办理</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="edit">签收</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="goTo">跟踪</a>
+</script>
+<script th:src="@{/static/js/layui-v2.4.5/layui/layui.js}"></script>
+<!--<script th:src="@{/js/layui-v2.2.5/layui/lay/modules/jquery.js}"></script>-->
+<script type="text/javascript" th:inline="none">
+    //JavaScript代码区域
+    layui.use('table', function () {
+        var table = layui.table;
+        var cols = [[
+            {field: 'taskId', title: '任务ID', sort: true}
+            ,{field: 'proIntId', title: '实例ID', sort: true}
+            ,{field: 'proDefId', title: '流程定义文件ID', sort: true}
+            , {field: 'flowName', title: '流程名字'}
+            , {field: 'flowVersion', title: '流程版本', sort: true}
+            , {field: 'currTaskName', title: '当前任务节点'}
+            , {field: 'supTaskName', title: '上一个任务节点'}
+            , {field: 'nextTaskName', title: '下一个任务节点'}
+            , {field: 'assignName', title: '当前办理人'}
+            ,{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}
+        ]]
+        table.render({
+            elem: '#actTask'
+            , url: '/activiti/act-Task/taskToList/'
+            , cols: cols
+            , page: true
+        });
+
+        //监听行工具事件
+        table.on('tool(test)', function(obj){ //注：tool 是工具条事件名，test 是 table 原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                ,layEvent = obj.event; //获得 lay-event 对应的值
+            if(layEvent === 'goTo'){
+                // window.location.href="/static/modeler.html?modelId="+data.id;
+                window.open("/activiti/act-Task/graphHistoryProcessInstance?processInstanceId="+data.proIntId, "_blank");
+            } else if(layEvent === 'del'){
+                layer.msg('办理操作');
+                window.location.href ="/activiti/act-Task/dealFLow?type=1&money=10000&taskId="+data.taskId;
+            } else if(layEvent === 'edit'){
+                layer.msg('签收操作');
+                window.location.href ="/activiti/act-Task/dealFLow?type=0&money=10000&taskId="+data.taskId;
+            }
+        });
+    });
+
+
+</script>
+</html>

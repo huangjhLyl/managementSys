@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin-activiti/admin-activiti.iml" filepath="$PROJECT_DIR$/admin-activiti/admin-activiti.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-user/admin-user.iml" filepath="$PROJECT_DIR$/admin-user/admin-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-util/common-util.iml" filepath="$PROJECT_DIR$/common-util/common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config/config.iml" filepath="$PROJECT_DIR$/config/config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fegin/fegin.iml" filepath="$PROJECT_DIR$/fegin/fegin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/managementSys.iml" filepath="$PROJECT_DIR$/.idea/managementSys.iml" />
+    </modules>
+  </component>
+</project>

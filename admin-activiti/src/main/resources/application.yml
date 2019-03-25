@@ -1,0 +1,42 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  activiti:
+      check-process-definitions: false # activti是否自动部署
+      db-identity-used: true #是否使用activti自带的用户体系
+      database-schema-update: true #是否每次都更新数据库
+      #    check-process-definitions: false # activti是否自动部署
+      #    db-identity-used: false #是否使用activti自带的用户体系
+      #    database-schema-update: false #是否每次都更新数据库
+  datasource:
+    dynamic:
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      datasource:
+        master:
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/activiti?serverTimezone=GMT
+        slave_1:
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://localhost:3306/sakila?serverTimezone=GMT
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+  thymeleaf:
+    cache: false
+  application:
+    name: adminActiviti
+# 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+mybatis-plus:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
