@@ -58,7 +58,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("sys_holiday"));
-        pc.setParent("com.docker.adminUser");
+        pc.setParent("com.docker.adminUser.modules");
         mpg.setPackageInfo(pc);
 
         // 自定义配置
