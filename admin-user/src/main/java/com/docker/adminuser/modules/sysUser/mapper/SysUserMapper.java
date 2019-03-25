@@ -1,4 +1,4 @@
-package com.docker.adminUser.modules.sysUser.mapper;
+package com.docker.adminuser.modules.sysUser.mapper;
 
 import com.docker.adminUser.modules.sysUser.entity.SysUser;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

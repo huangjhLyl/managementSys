@@ -1,9 +1,9 @@
-package com.docker.adminUser.modules.sysUser.service.impl;
+package com.docker.adminuser.modules.sysUser.service.impl;
 
 import com.docker.adminUser.modules.sysUser.entity.SysUser;
-import com.docker.adminUser.modules.sysUser.mapper.SysUserMapper;
-import com.docker.adminUser.modules.sysUser.service.ISysUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.docker.adminuser.modules.sysUser.mapper.SysUserMapper;
+import com.docker.adminuser.modules.sysUser.service.ISysUserService;
 import org.springframework.stereotype.Service;
 
 /**

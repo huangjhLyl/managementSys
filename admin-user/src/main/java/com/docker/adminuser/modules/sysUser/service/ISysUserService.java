@@ -1,4 +1,4 @@
-package com.docker.adminUser.modules.sysUser.service;
+package com.docker.adminuser.modules.sysUser.service;
 
 import com.docker.adminUser.modules.sysUser.entity.SysUser;
 import com.baomidou.mybatisplus.extension.service.IService;

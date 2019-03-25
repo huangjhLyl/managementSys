@@ -1,4 +1,4 @@
-package com.docker.adminUser.modules.sysUser.controller;
+package com.docker.adminuser.modules.sysUser.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
