@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="admin-activiti" />
+        <module name="admin-role" />
         <module name="admin-user" />
         <module name="common-util" />
         <module name="config" />
@@ -16,6 +17,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="admin-activiti" target="1.8" />
+      <module name="admin-role" target="1.8" />
       <module name="admin-user" target="1.8" />
       <module name="common-util" target="1.8" />
       <module name="config" target="1.8" />

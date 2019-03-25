@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/fegin/pom.xml" />
         <option value="$PROJECT_DIR$/admin-user/pom.xml" />
         <option value="$PROJECT_DIR$/common-util/pom.xml" />
+        <option value="$PROJECT_DIR$/admin-role/pom.xml" />
       </list>
     </option>
   </component>
