@@ -9,10 +9,16 @@ import java.util.List;
  */
 public class Layui  extends HashMap<String, Object> {
 
-    public static Layui data(Integer count, List<?> data){
+    /**
+     * 成功返回
+     * @param count
+     * @param data
+     * @return
+     */
+    public static Layui data(Integer count, Object data){
         Layui r = new Layui();
         r.put("code", 0);
-        r.put("msg", "");
+        r.put("msg", "成功");
         r.put("count", count);
         r.put("data", data);
         return r;

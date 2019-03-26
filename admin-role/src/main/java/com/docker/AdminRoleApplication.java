@@ -1,4 +1,4 @@
-package com.docker.adminrole;
+package com.docker;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

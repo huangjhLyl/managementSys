@@ -1,4 +1,4 @@
-package com.docker.adminRole.modules.sysRole.entity;
+package com.docker.adminrole.modules.sysRole.entity;
 
 import java.io.Serializable;
 import lombok.Data;

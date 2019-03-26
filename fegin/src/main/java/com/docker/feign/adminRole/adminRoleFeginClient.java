@@ -1,0 +1,15 @@
+package com.docker.feign.adminRole;
+
+import com.docker.feign.adminRole.entity.SysRole;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+
+@FeignClient(name="adminRole")
+public interface adminRoleFeginClient {
+
+	@PostMapping("/sysRole/sys-role/findListByUserId")
+	public List<SysRole> findListByUserId(@RequestParam("userId") String userId);
+}

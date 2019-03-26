@@ -1,6 +1,6 @@
-package com.docker.adminRole.modules.sysRole.mapper;
+package com.docker.adminrole.modules.sysRole.mapper;
 
-import com.docker.adminRole.modules.sysRole.entity.SysRole;
+import com.docker.adminrole.modules.sysRole.entity.SysRole;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

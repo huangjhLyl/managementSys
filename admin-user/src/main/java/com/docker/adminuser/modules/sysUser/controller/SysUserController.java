@@ -1,16 +1,25 @@
 package com.docker.adminuser.modules.sysUser.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.docker.adminuser.modules.sysUser.service.ISysUserService;
+import com.docker.commonUtil.Layui;
+import com.docker.feign.adminRole.entity.SysRole;
+import com.docker.feign.adminRole.entity.SysUserOutPut;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.boot.context.properties.bind.BindResult;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
 import com.docker.adminUser.modules.sysUser.entity.SysUser;
+
+import com.docker.feign.adminRole.adminRoleFeginClient;
+
+import javax.swing.plaf.LayerUI;
+import javax.validation.Valid;
+import java.util.List;
 
 /**
  * <p>
@@ -22,32 +31,56 @@ import com.docker.adminUser.modules.sysUser.entity.SysUser;
  */
 @RestController
 @RequestMapping("/sysUser/sys-user")
+@Slf4j
 public class SysUserController {
 
     @Autowired
     private ISysUserService userService;
-    /**
-     * 查询个人信息
-     * 1.查询用户信息
-     * 2.查询归属公司
-     * 3.查询用户角色
-     * 4.数据构造
-     */
+    
+    @Autowired
+    private adminRoleFeginClient adminRoleFeginClient;
     /**
      *查询个人信息
      * 1.查询用户信息
-     * 2.查询归属公司
-     * 3.查询用户角色
-     * 4.数据构造
-     * @param loginName 登录名
+     * 2.查询用户角色
+     * 3.数据构造
+     * @param user
+     * @param bindingResult
      * @return
      */
     @PostMapping("getPersonInfo")
-    public SysUser getPersonInfo(@RequestBody String loginName){
-        //查询用户信息
+    public Layui getPersonInfo(@Valid SysUserOutPut user, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return Layui.data(0,bindingResult.getFieldErrors());
+        }
+        SysUserOutPut userOutPut = new SysUserOutPut();
+
+        //1.查询用户信息
+        queryUserInfo(user.getLoginName(), userOutPut);
+
+        //2.查询用户角色
+        List<SysRole> listRole= adminRoleFeginClient.findListByUserId(userOutPut.getId());
+
+        //3.数据构造
+        userOutPut.setUserRoles(listRole);
+
+        return Layui.data(0,userOutPut);
+    }
+
+    /**
+     * 查询用户信息
+     * @param loginName
+     * @param userOutPut
+     */
+
+    private void queryUserInfo(@RequestParam String loginName, SysUserOutPut userOutPut) {
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("login_name",loginName);
         SysUser user = userService.getOne(queryWrapper);
-        return user;
+        log.info("用户信息：{}",user);
+
+        if(user !=null){
+            BeanUtils.copyProperties(user,userOutPut);
+        }
     }
 }

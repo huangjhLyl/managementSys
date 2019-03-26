@@ -1,9 +1,9 @@
-package com.docker.adminRole.modules.sysRole.service.impl;
+package com.docker.adminrole.modules.sysRole.service.impl;
 
-import com.docker.adminRole.modules.sysRole.entity.SysRole;
-import com.docker.adminRole.modules.sysRole.mapper.SysRoleMapper;
-import com.docker.adminRole.modules.sysRole.service.ISysRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.docker.adminrole.modules.sysRole.entity.SysRole;
+import com.docker.adminrole.modules.sysRole.mapper.SysRoleMapper;
+import com.docker.adminrole.modules.sysRole.service.ISysRoleService;
 import org.springframework.stereotype.Service;
 
 /**

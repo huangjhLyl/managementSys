@@ -1,8 +1,6 @@
-package com.docker.adminuser.modules.sysUser.entity;
+package com.docker.adminrole.modules.sysRole.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -24,6 +22,7 @@ public class SysUserOutPut implements Serializable {
      * 用户id
      */
     private String id;
+
     /**
      * 用户头像
      */

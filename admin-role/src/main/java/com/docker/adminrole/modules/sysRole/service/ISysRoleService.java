@@ -1,6 +1,6 @@
-package com.docker.adminRole.modules.sysRole.service;
+package com.docker.adminrole.modules.sysRole.service;
 
-import com.docker.adminRole.modules.sysRole.entity.SysRole;
+import com.docker.adminrole.modules.sysRole.entity.SysRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

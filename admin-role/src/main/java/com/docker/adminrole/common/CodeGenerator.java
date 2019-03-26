@@ -58,7 +58,7 @@ public class CodeGenerator {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("sysRole"));
-        pc.setParent("com.docker.adminRole.modules");
+        pc.setParent("com.docker.adminrole.modules");
         mpg.setPackageInfo(pc);
 
         // 自定义配置

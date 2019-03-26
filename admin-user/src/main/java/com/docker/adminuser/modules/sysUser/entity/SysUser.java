@@ -20,7 +20,10 @@ import lombok.experimental.Accessors;
 public class SysUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    /**
+     * 用户id
+     */
+    private String id;
     /**
      * 归属公司
      */
