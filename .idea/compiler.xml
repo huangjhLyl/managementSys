@@ -13,6 +13,7 @@
         <module name="config" />
         <module name="eureka" />
         <module name="fegin" />
+        <module name="parent" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="config" target="1.8" />
       <module name="eureka" target="1.8" />
       <module name="fegin" target="1.8" />
+      <module name="parent" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
