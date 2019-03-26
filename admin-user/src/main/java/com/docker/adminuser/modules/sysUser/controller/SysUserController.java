@@ -71,6 +71,16 @@ public class SysUserController {
     }
 
     /**
+     * 查询所有的用户信息
+     * @return
+     */
+    @PostMapping("listPersonInfo")
+    public Layui listPersonInfo(SysUserOutPut user){
+        QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
+        List<SysUser> list = userService.list(queryWrapper);
+        return Layui.data(list.size(),list);
+    }
+    /**
      * 查询用户信息
      * @param loginName
      * @param userOutPut
