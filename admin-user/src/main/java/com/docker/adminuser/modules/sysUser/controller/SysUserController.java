@@ -44,16 +44,19 @@ public class SysUserController {
      * 1.查询用户信息
      * 2.查询用户角色
      * 3.数据构造
+     * 存在问题，传入参数的绑定校验没有完成
      * @param user
      * @param bindingResult
      * @return
      */
     @PostMapping("getPersonInfo")
     public Layui getPersonInfo(@Valid SysUserOutPut user, BindingResult bindingResult){
+        SysUserOutPut userOutPut = new SysUserOutPut();
+
+        //参数校验
         if(bindingResult.hasErrors()){
             return Layui.data(0,bindingResult.getFieldErrors());
         }
-        SysUserOutPut userOutPut = new SysUserOutPut();
 
         //1.查询用户信息
         queryUserInfo(user.getLoginName(), userOutPut);

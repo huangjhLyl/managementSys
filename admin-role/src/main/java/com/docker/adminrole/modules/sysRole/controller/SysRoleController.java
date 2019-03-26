@@ -5,15 +5,11 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.docker.adminrole.modules.roleUserMapp.entity.SysUserRole;
 import com.docker.adminrole.modules.roleUserMapp.service.ISysUserRoleService;
 import com.docker.adminrole.modules.sysRole.entity.SysRole;
-import com.docker.feign.adminRole.entity.SysUserOutPut;
 import com.docker.adminrole.modules.sysRole.service.ISysRoleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -45,13 +41,21 @@ public class SysRoleController {
         List<SysRole> list = new ArrayList<SysRole>();
         Map<String, Object> map = new HashMap<>();
         map.put("user_id",userId);
+        //查询中间表
         Collection<SysUserRole> sysUserRoles = sysUserRoleService.listByMap(map);
+
         if(!sysUserRoles.isEmpty()){
-            List<String> roleIds = sysUserRoles.stream().map(SysUserRole::getRoleId).collect(Collectors.toList());
+            //取得这个用户下所有的角色id
+            List<String> roleIds = sysUserRoles.stream()
+                    .map(SysUserRole::getRoleId)
+                    .collect(Collectors.toList());
+
+            //查询所有的角色信息
             QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
             queryWrapper.in("id",roleIds);
             List<SysRole> roleList = sysRoleService.list(queryWrapper);
 
+            //将结果返回输出
             list = roleList.stream().map(e -> {
                 SysRole role = new SysRole();
                 BeanUtils.copyProperties(e, role);
