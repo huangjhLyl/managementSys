@@ -7,3 +7,5 @@ spring:
         enabled: true
         service-id: config
       profile: dev
+    bus:
+      id: ${vcap.application.name:${spring.application.name:application}}:${vcap.application.instance_index:${spring.cloud.config.profile:${local.server.port:${server.port:0}}}}:${vcap.application.instance_id:${random.value}}
