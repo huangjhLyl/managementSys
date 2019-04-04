@@ -17,6 +17,7 @@ import com.docker.adminUser.modules.sysUser.entity.SysUser;
 
 import com.docker.feign.adminRole.adminRoleFeginClient;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.swing.plaf.LayerUI;
 import javax.validation.Valid;
 import java.util.List;
@@ -75,7 +76,7 @@ public class SysUserController {
      * @return
      */
     @PostMapping("listPersonInfo")
-    public Layui listPersonInfo(SysUserOutPut user){
+    public Layui listPersonInfo(SysUserOutPut user, HttpServletRequest request){
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         List<SysUser> list = userService.list(queryWrapper);
         return Layui.data(list.size(),list);

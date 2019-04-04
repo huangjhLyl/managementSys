@@ -8,6 +8,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
@@ -32,7 +33,8 @@ public class SendMessageController {
 
 
     @GetMapping("/sendMessage2")
-    public void send(){
+    public void send(HttpServletRequest request){
+
         amqpTemplate.convertAndSend("myQueue","now "+new Date());
     }
 }

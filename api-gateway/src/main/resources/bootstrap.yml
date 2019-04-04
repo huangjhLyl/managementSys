@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: apiGateway
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config
+      profile: dev
+    bus:
+      id: ${vcap.application.name:${spring.application.name:application}}:${vcap.application.instance_index:${spring.cloud.config.profile:${local.server.port:${server.port:0}}}}:${vcap.application.instance_id:${random.value}}
+zuul:
+  routes:
+#    adminUser: /userApp/**
+    users:
+      path: /userApp/**
+      serviceId: adminUser
+      sensitiveHeaders:
+#  ignored-patterns:
+#    - /**/sysUser/sys-user/listPersonInfo
+

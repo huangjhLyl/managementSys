@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/admin-activiti/admin-activiti.iml" filepath="$PROJECT_DIR$/admin-activiti/admin-activiti.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-role/admin-role.iml" filepath="$PROJECT_DIR$/admin-role/admin-role.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-user/admin-user.iml" filepath="$PROJECT_DIR$/admin-user/admin-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-gateway/api-gateway.iml" filepath="$PROJECT_DIR$/api-gateway/api-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-util/common-util.iml" filepath="$PROJECT_DIR$/common-util/common-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/config/config.iml" filepath="$PROJECT_DIR$/config/config.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka/eureka.iml" filepath="$PROJECT_DIR$/eureka/eureka.iml" />
