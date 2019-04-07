@@ -18,8 +18,13 @@
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
 
-	<dependencies>
 
+
+	<dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
 	</dependencies>
 
 
