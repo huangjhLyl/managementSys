@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.docker.adminuser.modules.sysUser.service.ISysUserService;
 import com.docker.commonUtil.Layui;
 import com.docker.feign.adminRole.entity.SysRole;
+import com.docker.feign.adminRole.entity.SysUserInPut;
 import com.docker.feign.adminRole.entity.SysUserOutPut;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -32,7 +34,7 @@ import java.util.List;
  * @author huangjh
  * @since 2019-03-25
  */
-@Api("用户模块api")
+@Api(tags = "SayController|用户模块api控制器")
 @RestController
 @RequestMapping("/sysUser/sys-user")
 @Slf4j
@@ -53,9 +55,10 @@ public class SysUserController {
      * @param bindingResult
      * @return
      */
-    @ApiOperation("getPersonInfo")
+    @ApiOperation(value="根据登录名获取用户信息")
+    @ApiImplicitParam(paramType="query", name = "loginName", value = "登录名", required = true, dataType = "String")
     @PostMapping("getPersonInfo")
-    public Layui getPersonInfo(@Valid SysUserOutPut user, BindingResult bindingResult){
+    public Layui getPersonInfo(@Valid SysUserInPut user, BindingResult bindingResult){
         SysUserOutPut userOutPut = new SysUserOutPut();
 
         //参数校验
@@ -79,9 +82,10 @@ public class SysUserController {
      * 查询所有的用户信息
      * @return
      */
-    @ApiOperation("listPersonInfo")
+    @ApiOperation(value="查询所有的用户信息")
+    @ApiImplicitParam(paramType="query", name = "loginName", value = "登录名", required = true, dataType = "String")
     @PostMapping("listPersonInfo")
-    public Layui listPersonInfo(SysUserOutPut user, HttpServletRequest request){
+    public Layui listPersonInfo(SysUserInPut user, HttpServletRequest request){
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
         List<SysUser> list = userService.list(queryWrapper);
         return Layui.data(list.size(),list);

@@ -30,14 +30,14 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
                 .paths(PathSelectors.any())
                 .build();
+//                .pathMapping("/userApp");
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("userApp")
+                .title("用户模块api")
                 .description("接口文档说明")
-                .licenseUrl("/basePath")
-                .contact(new Contact("xaq", "", "775275027@gmail.com"))
+                .contact(new Contact("huangjh", "", "646624437@gmail.com"))
                 .version("2.0")
                 .build();
     }
