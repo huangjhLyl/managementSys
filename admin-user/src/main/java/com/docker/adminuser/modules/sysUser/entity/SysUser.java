@@ -99,5 +99,4 @@ public class SysUser implements Serializable {
      */
     private String remarks;
 
-
 }

@@ -12,10 +12,11 @@ spring:
 zuul:
   routes:
 #    adminUser: /userApp/**
-    users:
+    adminUser:
       path: /userApp/**
-      serviceId: adminUser
-      sensitiveHeaders:
+    adminRole:
+      path: /roleApp/**
+
 #  ignored-patterns:
 #    - /**/sysUser/sys-user/listPersonInfo
 

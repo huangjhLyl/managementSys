@@ -35,14 +35,14 @@ public class TokenFilter extends ZuulFilter {
 
     @Override
     public Object run() throws ZuulException {
-        RequestContext currentContext = RequestContext.getCurrentContext();
-        HttpServletRequest request = currentContext.getRequest();
-
-        String token = request.getParameter("token");
-        if(StringUtils.isEmpty(token)){
-            currentContext.setSendZuulResponse(false);
-            currentContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
-        }
+//        RequestContext currentContext = RequestContext.getCurrentContext();
+//        HttpServletRequest request = currentContext.getRequest();
+//
+//        String token = request.getParameter("token");
+//        if(StringUtils.isEmpty(token)){
+//            currentContext.setSendZuulResponse(false);
+//            currentContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+//        }
         return null;
     }
 }

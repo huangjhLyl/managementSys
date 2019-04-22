@@ -6,6 +6,8 @@ import com.docker.adminuser.modules.sysUser.service.ISysUserService;
 import com.docker.commonUtil.Layui;
 import com.docker.feign.adminRole.entity.SysRole;
 import com.docker.feign.adminRole.entity.SysUserOutPut;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,7 @@ import java.util.List;
  * @author huangjh
  * @since 2019-03-25
  */
+@Api("用户模块api")
 @RestController
 @RequestMapping("/sysUser/sys-user")
 @Slf4j
@@ -50,6 +53,7 @@ public class SysUserController {
      * @param bindingResult
      * @return
      */
+    @ApiOperation("getPersonInfo")
     @PostMapping("getPersonInfo")
     public Layui getPersonInfo(@Valid SysUserOutPut user, BindingResult bindingResult){
         SysUserOutPut userOutPut = new SysUserOutPut();
@@ -75,6 +79,7 @@ public class SysUserController {
      * 查询所有的用户信息
      * @return
      */
+    @ApiOperation("listPersonInfo")
     @PostMapping("listPersonInfo")
     public Layui listPersonInfo(SysUserOutPut user, HttpServletRequest request){
         QueryWrapper<SysUser> queryWrapper = new QueryWrapper<>();
