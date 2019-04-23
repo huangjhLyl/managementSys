@@ -15,6 +15,7 @@
         <module name="eureka" />
         <module name="fegin" />
         <module name="parent" />
+        <module name="SwaggerToWord" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,6 +28,7 @@
       <module name="eureka" target="1.8" />
       <module name="fegin" target="1.8" />
       <module name="parent" target="1.8" />
+      <module name="SwaggerToWord" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
